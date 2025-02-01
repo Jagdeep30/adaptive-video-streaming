@@ -19,15 +19,15 @@ load_dotenv()
 sqsClient = boto3.client(
     service_name='sqs', 
     region_name=os.getenv("AWS_REGION"), 
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY") ,
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
     aws_secret_access_key=os.getenv("AWS_SECRET_KEY")
 )
 
 ecsClient = boto3.client(
     service_name='ecs',
-    region_name=aws_region, 
-    aws_access_key_id=aws_access_key_id ,
-    aws_secret_access_key=aws_secret_access_key
+    region_name=os.getenv("AWS_REGION"), 
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_KEY")
 )
 
 sqsQueueUrl = "https://sqs.us-east-1.amazonaws.com/594843356659/TempRawVideoS3Queue"
