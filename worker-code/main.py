@@ -16,15 +16,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-aws_region = "us-east-1"
-aws_access_key_id="AKIAYU73NJXZUPLHLBWV"
-aws_secret_access_key="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"
-
 sqsClient = boto3.client(
     service_name='sqs', 
-    region_name=aws_region, 
-    aws_access_key_id=aws_access_key_id ,
-    aws_secret_access_key=aws_secret_access_key
+    region_name=os.getenv("AWS_REGION"), 
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY") ,
+    aws_secret_access_key=os.getenv("AWS_SECRET_KEY")
 )
 
 ecsClient = boto3.client(
